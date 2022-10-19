@@ -1,4 +1,5 @@
 package com.five.springdesafio.model.clinica;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-@Table(name = " Medico")
+@Table(name = "Medico")
 public class Medico extends Usuario {
 
     @ManyToMany
@@ -21,6 +24,7 @@ public class Medico extends Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Medico_id")
     public long medicoId;
 
     @Size(min = 5, max = 5)
@@ -59,6 +63,5 @@ public class Medico extends Usuario {
     public void setCrm(int crm) {
         this.crm = crm;
     }
-
 
 }

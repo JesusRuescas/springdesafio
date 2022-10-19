@@ -8,9 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,19 +18,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "Paciente")
 public class Paciente extends Usuario {
-    @ManyToMany
+
+    @OneToMany
     protected static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Paciente_id")
-
     public long pacienteId;
 
     public Paciente() {
     }
 
-    public Paciente(long pacienteId, @Length(min = 1, max = 30) String nome, @Length(min = 11, max = 11) String cpf,
-            @JsonFormat(pattern = "dd-MM-yyy") String nascimento, @Length(min = 1, max = 1) String sexo) {
+    public Paciente(long pacienteId, @Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf,
+            @JsonFormat(pattern = "dd-MM-yyy") String nascimento, @Size(min = 1, max = 1) String sexo) {
         this.pacienteId = pacienteId;
         this.nome = nome;
         this.cpf = cpf;
@@ -48,5 +49,5 @@ public class Paciente extends Usuario {
 
     public void setPacienteId(long pacienteId) {
         this.pacienteId = pacienteId;
-    } 
+    }
 }

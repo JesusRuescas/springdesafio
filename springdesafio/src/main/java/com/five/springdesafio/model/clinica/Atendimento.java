@@ -7,27 +7,32 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-@Table(name = "Medico")
+@Table(name = "Atendimento")
 public class Atendimento {
-    @ManyToOne
+
+    @OneToMany
     protected static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Atendimento_id")
-
     protected long atendimentoId;
+    
     protected String data;
     protected String observacao;
     protected boolean ativo;
     
-
+    @ManyToOne
     Medico medicoId;
+    
+    @ManyToOne
     Paciente pacienteId;
 
 
