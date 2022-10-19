@@ -1,11 +1,26 @@
 package com.five.springdesafio.model.clinica;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Table(name = "Medico")
 public class Atendimento {
+    @ManyToOne
     protected static final long serialVersionUID = 1L;
-    @Column(name = "AtendimentoId")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Atendimento_id")
+
     protected long atendimentoId;
     protected String data;
     protected String observacao;
