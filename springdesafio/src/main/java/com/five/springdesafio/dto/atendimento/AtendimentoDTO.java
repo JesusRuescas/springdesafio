@@ -1,51 +1,23 @@
-package com.five.springdesafio.model.clinica;
+package com.five.springdesafio.dto.atendimento;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import com.five.springdesafio.model.clinica.Medico;
+import com.five.springdesafio.model.clinica.Paciente;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-@Entity
-public class Atendimento {
-
-    @OneToMany
-    protected static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Atendimento_id")
-    protected long atendimentoId;
-
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    protected String data;
-
-    protected String observacao;
-    protected boolean ativo;
-
-    @OneToOne
+public class AtendimentoDTO {
+    private long atendimentoId;
+    private String data;
+    private String observacao;
+    private boolean ativo;
     Medico crm;
-    @OneToOne
     Paciente cpf;
-
-    public Atendimento(long atendimentoId, String data, String observacao, boolean ativo, Medico crm, Paciente cpf) {
+    
+    public AtendimentoDTO(long atendimentoId, String data, String observacao, boolean ativo, Medico crm, Paciente cpf) {
         this.atendimentoId = atendimentoId;
         this.data = data;
         this.observacao = observacao;
         this.ativo = ativo;
         this.crm = crm;
         this.cpf = cpf;
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
     }
 
     public long getAtendimentoId() {
@@ -95,6 +67,5 @@ public class Atendimento {
     public void setCpf(Paciente cpf) {
         this.cpf = cpf;
     }
-
     
 }

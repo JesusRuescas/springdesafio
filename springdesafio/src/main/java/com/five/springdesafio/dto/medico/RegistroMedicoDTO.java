@@ -1,40 +1,27 @@
-package com.five.springdesafio.dto;
+package com.five.springdesafio.dto.medico;
 
-import com.five.springdesafio.model.clinica.Paciente;
+public class RegistroMedicoDTO {
 
-public class PacienteDTO {
-
-    private long pacienteId;
+    int crm;
     private String nome;
     private String cpf;
     private String nascimento;
     private String sexo;
 
-    public PacienteDTO() {
-    }
-
-    public PacienteDTO(long pacienteId, String nome, String cpf, String nascimento, String sexo) {
-        this.pacienteId = pacienteId;
+    public RegistroMedicoDTO(int crm, String nome, String cpf, String nascimento, String sexo) {
+        this.crm = crm;
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
         this.sexo = sexo;
     }
 
-    public PacienteDTO(Paciente modelPaciente) {
-        this.pacienteId = modelPaciente.getPacienteId();
-        this.nome = modelPaciente.getNome();
-        this.cpf = modelPaciente.getCpf();
-        this.nascimento = modelPaciente.getNascimento();
-        this.sexo = modelPaciente.getSexo();
+    public int getCrm() {
+        return crm;
     }
 
-    public long getPacienteId() {
-        return pacienteId;
-    }
-
-    public void setPacienteId(long pacienteId) {
-        this.pacienteId = pacienteId;
+    public void setCrm(int crm) {
+        this.crm = crm;
     }
 
     public String getNome() {
@@ -69,6 +56,4 @@ public class PacienteDTO {
         this.sexo = sexo;
     }
 
-    
-    
 }
