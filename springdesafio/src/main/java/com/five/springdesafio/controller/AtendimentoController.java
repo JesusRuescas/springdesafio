@@ -12,27 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.five.springdesafio.Service.MedicoService;
-import com.five.springdesafio.dto.medico.MedicoDTO;
-import com.five.springdesafio.dto.medico.RegistroMedicoDTO;
+import com.five.springdesafio.Service.AtendimentoService;
+import com.five.springdesafio.dto.atendimento.AtendimentoDTO;
+import com.five.springdesafio.dto.atendimento.RegistroAtendimentoDTO;
 
 @RequestMapping(value = "/atendimento")
 @RestController
 public class AtendimentoController {
 
-    // @Autowired
-    // private MedicoService medicoService;
+    @Autowired
+    private AtendimentoService atendimentoService;
 
-    // @PostMapping
-    // @ResponseStatus(HttpStatus.CREATED)
-    // public ResponseEntity<MedicoDTO> atualizaMedico(@RequestBody RegistroMedicoDTO registroMedicoDTO) {
-    //     medicoService.atualizaMedico(registroMedicoDTO);
-    //     return ResponseEntity.status(HttpStatus.CREATED).body(medicoService.atualizaMedico(registroMedicoDTO));
-    // }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<AtendimentoDTO> atualizaAtendimento(@RequestBody RegistroAtendimentoDTO registroAtendimentoDTO) {
+        atendimentoService.atualizaAtendimento(registroAtendimentoDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(atendimentoService.atualizaAtendimento(registroAtendimentoDTO));
+    }
 
-    // @GetMapping(produces = "application/json")
-    // public ResponseEntity<List<MedicoDTO>> listaMedicos() {
-    //     List<MedicoDTO> medicos = medicoService.findAll();
-    //     return ResponseEntity.status(HttpStatus.OK).body(medicos);
-    // }
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<List<AtendimentoDTO>> listaAtendimentos() {
+        List<AtendimentoDTO> atendimentos = atendimentoService.listaAtenidmentos();
+        return ResponseEntity.status(HttpStatus.OK).body(atendimentos);
+    }
 }

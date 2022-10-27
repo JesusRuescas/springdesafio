@@ -27,7 +27,7 @@ public class PacienteService {
         return pacienteMapper.dto(pacienteModel);
     }
 
-    public List<PacienteDTO> findAll() {
+    public List<PacienteDTO> listaPacientes() {
         return pacienteMapper.listDto(pacienteRepository.findAll());
     }
 }

@@ -34,5 +34,5 @@ public interface PacienteMapper {
     ConsultaPacienteDTO consultaDTO(Paciente paciente);
 
     @Mapping(target = "id", ignore = true)
-    Paciente atualizaParcialMapModel(AtualizaPacienteDTO PacienteDTO, @MappingTarget Paciente paciente);
+    Paciente atualizaParcialMapModel(AtualizaPacienteDTO pacienteDTO, @MappingTarget Paciente paciente);
 }

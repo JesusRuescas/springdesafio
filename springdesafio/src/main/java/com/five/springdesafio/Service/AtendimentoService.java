@@ -16,21 +16,21 @@ import com.five.springdesafio.repository.AtendimentoRepository;
 @Service
 public class AtendimentoService {
 
-    // @Autowired
-    // AtendimentoRepository atendimentoRepository;
+    @Autowired
+    AtendimentoRepository atendimentoRepository;
 
-    // @Autowired
-    // AtendimentoMapper atendimentoMapper;
+    @Autowired
+    AtendimentoMapper atendimentoMapper;
 
-    // @Transactional
-    // public AtendimentoDTO atualizaAtendimento(RegistroAtendimentoDTO registroAtendimentoDTO) {
-    //     Atendimento atendimentoModel = atendimentoMapper.registroModel(registroAtendimentoDTO);
-    //     atendimentoRepository.save(atendimentoModel);
-    //     return atendimentoMapper.dto(atendimentoModel);
-    // }
+    @Transactional
+    public AtendimentoDTO atualizaAtendimento(RegistroAtendimentoDTO registroAtendimentoDTO) {
+        Atendimento atendimentoModel = atendimentoMapper.registroModel(registroAtendimentoDTO);
+        atendimentoRepository.save(atendimentoModel);
+        return atendimentoMapper.dto(atendimentoModel);
+    }
 
-    // public List<AtendimentoDTO> findAll() {
-    //     return atendimentoMapper.listDto(atendimentoRepository.findAll());
-    // }
+    public List<AtendimentoDTO> listaAtenidmentos() {
+        return atendimentoMapper.listDto(atendimentoRepository.findAll());
+    }
 
 }

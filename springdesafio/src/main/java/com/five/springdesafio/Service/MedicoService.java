@@ -24,12 +24,12 @@ public class MedicoService {
 
     @Transactional
     public MedicoDTO atualizaMedico(RegistroMedicoDTO registroMedicoDTO) {
-        Medico MedicoModel = medicoMapper.registroModel(registroMedicoDTO);
-        medicoRepository.save(MedicoModel);
-        return medicoMapper.dto(MedicoModel);
+        Medico medicoModel = medicoMapper.registroModel(registroMedicoDTO);
+        medicoRepository.save(medicoModel);
+        return medicoMapper.dto(medicoModel);
     }
 
-    public List<MedicoDTO> findAll() {
+    public List<MedicoDTO> listaMedicos() {
         return medicoMapper.listDto(medicoRepository.findAll());
     }
 

@@ -32,7 +32,7 @@ public class PacienteController {
 
     @GetMapping(produces = "application/json")
     public ResponseEntity<List<PacienteDTO>> listaPacientes() {
-        List<PacienteDTO> Pacientes = pacienteService.findAll();
-        return ResponseEntity.status(HttpStatus.OK).body(Pacientes);
+        List<PacienteDTO> pacientes = pacienteService.listaPacientes();
+        return ResponseEntity.status(HttpStatus.OK).body(pacientes);
     }
 }

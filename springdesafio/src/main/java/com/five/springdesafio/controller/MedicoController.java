@@ -32,7 +32,7 @@ public class MedicoController {
 
     @GetMapping(produces = "application/json")
     public ResponseEntity<List<MedicoDTO>> listaMedicos() {
-        List<MedicoDTO> medicos = medicoService.findAll();
+        List<MedicoDTO> medicos = medicoService.listaMedicos();
         return ResponseEntity.status(HttpStatus.OK).body(medicos);
     }
 }
