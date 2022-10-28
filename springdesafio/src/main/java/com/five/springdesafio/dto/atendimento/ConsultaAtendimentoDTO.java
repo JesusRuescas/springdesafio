@@ -8,6 +8,7 @@ public class ConsultaAtendimentoDTO {
     Medico crm;
     Paciente cpf;
     private boolean ativo;
+    public ConsultaAtendimentoDTO(){}
     public ConsultaAtendimentoDTO(long atendimentoId, Medico crm, Paciente cpf, boolean ativo) {
         this.atendimentoId = atendimentoId;
         this.crm = crm;

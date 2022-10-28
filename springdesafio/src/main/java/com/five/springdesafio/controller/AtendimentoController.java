@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.five.springdesafio.Service.AtendimentoService;
 import com.five.springdesafio.dto.atendimento.AtendimentoDTO;
 import com.five.springdesafio.dto.atendimento.RegistroAtendimentoDTO;
+import com.five.springdesafio.model.clinica.Atendimento;
 
 @RequestMapping(value = "/atendimento")
 @RestController
@@ -35,4 +36,5 @@ public class AtendimentoController {
         List<AtendimentoDTO> atendimentos = atendimentoService.listaAtenidmentos();
         return ResponseEntity.status(HttpStatus.OK).body(atendimentos);
     }
+
 }

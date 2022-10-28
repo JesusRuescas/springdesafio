@@ -8,6 +8,8 @@ public class ConsultaPacienteDTO {
     private String cpf;
     private String nascimento;
     private String sexo;
+
+    public ConsultaPacienteDTO(){}
     public ConsultaPacienteDTO(String nome, String cpf, String nascimento, String sexo) {
         this.nome = nome;
         this.cpf = cpf;

@@ -6,6 +6,7 @@ public class AtualizaPacienteDTO {
     private String nascimento;
     private String sexo;
     
+    public AtualizaPacienteDTO(){}
     public AtualizaPacienteDTO(String nome, String cpf, String nascimento, String sexo) {
         this.nome = nome;
         this.cpf = cpf;

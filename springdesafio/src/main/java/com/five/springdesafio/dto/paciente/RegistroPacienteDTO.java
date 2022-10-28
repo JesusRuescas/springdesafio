@@ -6,6 +6,7 @@ public class RegistroPacienteDTO {
     private String nascimento;
     private String sexo;
 
+    public RegistroPacienteDTO(){}
     public RegistroPacienteDTO(String nome, String cpf, String nascimento, String sexo) {
         this.nome = nome;
         this.cpf = cpf;

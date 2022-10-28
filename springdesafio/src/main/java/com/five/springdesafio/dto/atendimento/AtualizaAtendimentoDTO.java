@@ -9,7 +9,7 @@ public class AtualizaAtendimentoDTO {
     private boolean ativo;
     Medico crm;
     Paciente cpf;
-    
+    public AtualizaAtendimentoDTO(){}
     public AtualizaAtendimentoDTO(String data, String observacao, boolean ativo, Medico crm, Paciente cpf) {
         this.data = data;
         this.observacao = observacao;

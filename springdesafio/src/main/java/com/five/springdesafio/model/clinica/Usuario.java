@@ -35,9 +35,7 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 1)
     protected String sexo;
 
-    public Usuario() {
-    }
-
+    public Usuario() {}
     public Usuario(@Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf, String nascimento,
             @Size(min = 1, max = 1) String sexo) {
         this.nome = nome;

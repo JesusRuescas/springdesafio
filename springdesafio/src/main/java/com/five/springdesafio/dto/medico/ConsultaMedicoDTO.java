@@ -5,8 +5,10 @@ import com.five.springdesafio.model.clinica.Medico;
 public class ConsultaMedicoDTO {
 
     private String nome;
-    private int crm;
-    public ConsultaMedicoDTO(String nome, int crm) {
+    private String crm;
+
+    public ConsultaMedicoDTO(){}
+    public ConsultaMedicoDTO(String nome, String crm) {
         this.nome = nome;
         this.crm = crm;
     }
@@ -16,10 +18,10 @@ public class ConsultaMedicoDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getCrm() {
+    public String getCrm() {
         return crm;
     }
-    public void setCrm(int crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
 

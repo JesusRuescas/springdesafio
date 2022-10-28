@@ -10,6 +10,8 @@ public class RegistroAtendimentoDTO {
     Medico crm;
     Paciente cpf;
     
+    public RegistroAtendimentoDTO(){}
+
     public RegistroAtendimentoDTO(String data, String observacao, boolean ativo, Medico crm, Paciente cpf) {
         this.data = data;
         this.observacao = observacao;

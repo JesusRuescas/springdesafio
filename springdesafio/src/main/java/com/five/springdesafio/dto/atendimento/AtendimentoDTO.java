@@ -10,7 +10,7 @@ public class AtendimentoDTO {
     private boolean ativo;
     Medico crm;
     Paciente cpf;
-    
+    public AtendimentoDTO(){}
     public AtendimentoDTO(long atendimentoId, String data, String observacao, boolean ativo, Medico crm, Paciente cpf) {
         this.atendimentoId = atendimentoId;
         this.data = data;
