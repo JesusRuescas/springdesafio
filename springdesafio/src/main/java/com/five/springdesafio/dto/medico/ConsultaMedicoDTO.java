@@ -1,7 +1,5 @@
 package com.five.springdesafio.dto.medico;
 
-import com.five.springdesafio.model.clinica.Medico;
-
 public class ConsultaMedicoDTO {
 
     private String nome;

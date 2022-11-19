@@ -2,13 +2,14 @@ package com.five.springdesafio.dto.medico;
 
 public class RegistroMedicoDTO {
 
-    String crm;
+    private String crm;
     private String nome;
     private String cpf;
     private String nascimento;
     private String sexo;
 
-    public RegistroMedicoDTO(){}
+    public RegistroMedicoDTO() {
+    }
 
     public RegistroMedicoDTO(String crm, String nome, String cpf, String nascimento, String sexo) {
         this.crm = crm;

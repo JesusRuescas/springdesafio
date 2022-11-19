@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.five.springdesafio.Service.AtendimentoService;
 import com.five.springdesafio.dto.atendimento.AtendimentoDTO;
 import com.five.springdesafio.dto.atendimento.RegistroAtendimentoDTO;
-import com.five.springdesafio.model.clinica.Atendimento;
 
 @RequestMapping(value = "/atendimento")
 @RestController
@@ -26,15 +25,12 @@ public class AtendimentoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<AtendimentoDTO> atualizaAtendimento(@RequestBody RegistroAtendimentoDTO registroAtendimentoDTO) {
-        atendimentoService.atualizaAtendimento(registroAtendimentoDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(atendimentoService.atualizaAtendimento(registroAtendimentoDTO));
+    public ResponseEntity<AtendimentoDTO> cadastraAtendimento(@RequestBody RegistroAtendimentoDTO registroAtendimentoDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(atendimentoService.criaAtendimento(registroAtendimentoDTO));
     }
 
-    @GetMapping(produces = "application/json")
-    public ResponseEntity<List<AtendimentoDTO>> listaAtendimentos() {
-        List<AtendimentoDTO> atendimentos = atendimentoService.listaAtenidmentos();
-        return ResponseEntity.status(HttpStatus.OK).body(atendimentos);
+    @GetMapping
+    public ResponseEntity<List<AtendimentoDTO>> buscaTodosAtendimentos() {
+        return ResponseEntity.status(HttpStatus.OK).body(atendimentoService.listaAtendimentos());
     }
-
 }

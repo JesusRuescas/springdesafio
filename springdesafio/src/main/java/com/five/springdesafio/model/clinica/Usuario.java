@@ -1,7 +1,9 @@
 package com.five.springdesafio.model.clinica;
 
 import java.io.Serializable;
+import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,12 +17,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @MappedSuperclass
 public class Usuario implements Serializable {
-    
+
     protected static final long serialVersionUID = 1L;
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, unique = true, nullable = false)
+    public UUID id;
 
     @Size(min = 1, max = 30)
     protected String nome;
@@ -35,7 +38,9 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 1)
     protected String sexo;
 
-    public Usuario() {}
+    public Usuario() {
+    }
+
     public Usuario(@Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf, String nascimento,
             @Size(min = 1, max = 1) String sexo) {
         this.nome = nome;

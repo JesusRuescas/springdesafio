@@ -1,11 +1,11 @@
 package com.five.springdesafio.Service;
 
 import java.util.List;
-
-import javax.transaction.Transactional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.five.springdesafio.dto.medico.MedicoDTO;
 import com.five.springdesafio.dto.medico.RegistroMedicoDTO;
@@ -23,14 +23,46 @@ public class MedicoService {
     MedicoMapper medicoMapper;
 
     @Transactional
-    public MedicoDTO atualizaMedico(RegistroMedicoDTO registroMedicoDTO) {
+    public MedicoDTO criaMedico(RegistroMedicoDTO registroMedicoDTO) {
         Medico medicoModel = medicoMapper.registroModel(registroMedicoDTO);
         medicoRepository.save(medicoModel);
         return medicoMapper.dto(medicoModel);
     }
 
-    public List<MedicoDTO> listaMedicos() {
-        return medicoMapper.listDto(medicoRepository.findAll());
+    // public MedicoDTO listaPorCrm(String crm) {
+    //     Medico medico = medicoRepository.findByCrm(crm).get();
+    //     return medicoMapper.dto(medico);
+    // }
+
+    public List<MedicoDTO> listaMedicos(String crm) {
+        List<Medico> medicos = medicoRepository.findAll();
+        return medicoMapper.listDto(medicos);
+    }
+
+    @Transactional
+    public MedicoDTO deletaMedico(String crm) {
+        Medico medico = medicoRepository.findByCrm(crm).get();
+        medicoRepository.delete(medico);
+        return medicoMapper.dto(medico);
+    }
+
+    @Transactional
+    public RegistroMedicoDTO atualizaMedico(String crm, RegistroMedicoDTO registroMedicoDTO) {
+        Optional<Medico> medico = medicoRepository.findByCrm(crm);
+        Medico medicoModel = medico.orElseThrow(() -> new RuntimeException("Médico não encontrado"));
+        medicoModel = medicoMapper.AtualizaMapPutModel(registroMedicoDTO, medicoModel);
+        medicoRepository.save(medicoModel);
+        return medicoMapper.registroDTO(medicoModel);
+    }
+
+    @Transactional
+    public RegistroMedicoDTO atualizaMedicoParcial(String crm, RegistroMedicoDTO registroMedicoDTO) {
+        Optional<Medico> medico = medicoRepository.findByCrm(crm);
+        Medico medicoModel = medico.orElseThrow(() -> new RuntimeException("Médico não encontrado"));
+        medicoModel = medicoMapper.atualizaParcialMapModel(registroMedicoDTO, medicoModel);
+        medicoRepository.save(medicoModel);
+        return medicoMapper.registroDTO(medicoModel);
+
     }
 
 }

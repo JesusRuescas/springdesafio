@@ -4,43 +4,47 @@ import com.five.springdesafio.model.clinica.Medico;
 import com.five.springdesafio.model.clinica.Paciente;
 
 public class ConsultaAtendimentoDTO {
-    private long atendimentoId;
-    Medico crm;
-    Paciente cpf;
+    public Medico medico;
+    public Paciente paciente;
     private boolean ativo;
+
     public ConsultaAtendimentoDTO(){}
-    public ConsultaAtendimentoDTO(long atendimentoId, Medico crm, Paciente cpf, boolean ativo) {
-        this.atendimentoId = atendimentoId;
-        this.crm = crm;
-        this.cpf = cpf;
+
+    public ConsultaAtendimentoDTO(Medico medico, Paciente paciente, boolean ativo) {
+        this.medico = medico;
+        this.paciente = paciente;
         this.ativo = ativo;
     }
-    public long getAtendimentoId() {
-        return atendimentoId;
+
+    public Medico getMedico() {
+        return medico;
     }
-    public void setAtendimentoId(long atendimentoId) {
-        this.atendimentoId = atendimentoId;
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
-    public Medico getCrm() {
-        return crm;
+
+    public Paciente getPaciente() {
+        return paciente;
     }
-    public void setCrm(Medico crm) {
-        this.crm = crm;
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
-    public Paciente getCpf() {
-        return cpf;
-    }
-    public void setCpf(Paciente cpf) {
-        this.cpf = cpf;
-    }
+
     public boolean isAtivo() {
         return ativo;
     }
+
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
-   
 
+
+    @Override
+    public String toString() {
+        return medico.getCrm();
+    }
+    
     
 }

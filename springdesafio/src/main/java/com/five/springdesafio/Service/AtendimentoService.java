@@ -23,14 +23,43 @@ public class AtendimentoService {
     AtendimentoMapper atendimentoMapper;
 
     @Transactional
-    public AtendimentoDTO atualizaAtendimento(RegistroAtendimentoDTO registroAtendimentoDTO) {
-        Atendimento atendimentoModel = atendimentoMapper.registroModel(registroAtendimentoDTO);
+    public AtendimentoDTO criaAtendimento(RegistroAtendimentoDTO registroAtendimentoDTO) {
+        Atendimento atendimentoModel = atendimentoMapper.model(registroAtendimentoDTO);
         atendimentoRepository.save(atendimentoModel);
         return atendimentoMapper.dto(atendimentoModel);
     }
 
-    public List<AtendimentoDTO> listaAtenidmentos() {
-        return atendimentoMapper.listDto(atendimentoRepository.findAll());
+    public List<AtendimentoDTO> listaAtendimentos() {
+        List<Atendimento> atendimentos = atendimentoRepository.findAll();
+        return atendimentoMapper.listDto(atendimentos);
+    }
+
+    public AtendimentoDTO listaPorId(Long id) {
+        Atendimento atendimento = atendimentoRepository.findById(id).get();
+        return atendimentoMapper.dto(atendimento);
+    }
+
+    @Transactional
+    public AtendimentoDTO deletaAtendimento(Long id) {
+        Atendimento atendimento = atendimentoRepository.findById(id).get();
+        atendimentoRepository.delete(atendimento);
+        return atendimentoMapper.dto(atendimento);
+    }
+
+    @Transactional
+    public RegistroAtendimentoDTO atualizaAtendimento(Long id, RegistroAtendimentoDTO registroAtendimentoDTO) {
+        Atendimento atendimento = atendimentoRepository.findById(id).get();
+        atendimento = atendimentoMapper.AtualizaMapPutModel(registroAtendimentoDTO, atendimento);
+        atendimentoRepository.save(atendimento);
+        return atendimentoMapper.registroDTO(atendimento);
+    }
+
+    @Transactional
+    public RegistroAtendimentoDTO atualizaParcialAtendimento(Long id, RegistroAtendimentoDTO registroAtendimentoDTO) {
+        Atendimento atendimento = atendimentoRepository.findById(id).get();
+        atendimento = atendimentoMapper.atualizaParcialMapModel(registroAtendimentoDTO, atendimento);
+        atendimentoRepository.save(atendimento);
+        return atendimentoMapper.registroDTO(atendimento);
     }
 
 }

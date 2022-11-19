@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
-import com.five.springdesafio.dto.paciente.AtualizaPacienteDTO;
 import com.five.springdesafio.dto.paciente.ConsultaPacienteDTO;
 import com.five.springdesafio.dto.paciente.PacienteDTO;
 import com.five.springdesafio.dto.paciente.RegistroPacienteDTO;
@@ -34,5 +33,5 @@ public interface PacienteMapper {
     ConsultaPacienteDTO consultaDTO(Paciente paciente);
 
     @Mapping(target = "id", ignore = true)
-    Paciente atualizaParcialMapModel(AtualizaPacienteDTO pacienteDTO, @MappingTarget Paciente paciente);
+    Paciente atualizaParcialMapModel(RegistroPacienteDTO registroPacienteDTO, @MappingTarget Paciente paciente);
 }

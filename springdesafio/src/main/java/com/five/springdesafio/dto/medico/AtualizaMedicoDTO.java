@@ -1,13 +1,14 @@
 package com.five.springdesafio.dto.medico;
 
 public class AtualizaMedicoDTO {
-    String crm;
+    private String crm;
     private String nome;
     private String cpf;
     private String nascimento;
     private String sexo;
 
     public AtualizaMedicoDTO(){}
+
     public AtualizaMedicoDTO(String crm, String nome, String cpf, String nascimento, String sexo) {
         this.crm = crm;
         this.nome = nome;
@@ -55,4 +56,6 @@ public class AtualizaMedicoDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    
 }

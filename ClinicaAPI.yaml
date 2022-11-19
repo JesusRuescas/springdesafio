@@ -4,7 +4,7 @@ info:
   version: 1.0.0
 
 servers:
-  - url: https://6325ecce70c3fa390f9166f2.mockapi.io/tarikfs/clinic
+  - url: https://localhost:8080
     description: Desafio Spring boot - Clinica médica.
 
 paths:

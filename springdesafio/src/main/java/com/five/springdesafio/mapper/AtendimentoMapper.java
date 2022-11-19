@@ -16,25 +16,27 @@ import com.five.springdesafio.model.clinica.Atendimento;
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface AtendimentoMapper {
 
-    Atendimento model(AtendimentoDTO atendimentoDTO);
-
-    AtendimentoDTO dto(Atendimento atendimento);
-
-    @Mapping(target = "atendimentoId", ignore = true)
-    Atendimento AtualizaMapPutModel(RegistroAtendimentoDTO registroAtendimentoDTO,
-            @MappingTarget Atendimento atendimento);
-
-    @Mapping(target = "atendimentoId", ignore = true)
-    Atendimento registroModel(RegistroAtendimentoDTO registroAtendimentoDTO);
+    @Mapping(target = "id", ignore = true)
+    Atendimento model(RegistroAtendimentoDTO registroAtendimentoDTO);
 
     RegistroAtendimentoDTO registroDTO(Atendimento atendimento);
 
-    List<AtendimentoDTO> listDto(List<Atendimento> listAll);
+    @Mapping(target = "id", ignore = true)
+    Atendimento AtualizaMapPutModel(RegistroAtendimentoDTO registroAtendimentoDTO,
+            @MappingTarget Atendimento atendimento);
 
-    @Mapping(target = "atendimentoId", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    Atendimento atualizaParcialMapModel(RegistroAtendimentoDTO registroAtendimentoDTO,
+            @MappingTarget Atendimento atendimento);
+
+    AtendimentoDTO dto(Atendimento atendimento);
 
     ConsultaAtendimentoDTO consultaDTO(Atendimento atendimento);
 
-    @Mapping(target = "atendimentoId", ignore = true)
-    Atendimento atualizaParcialMapModel(AtualizaAtendimentoDTO atendimentoDTO, @MappingTarget Atendimento atendimento);
+    List<AtendimentoDTO> listDto(List<Atendimento> listAll);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "data", ignore = true)
+    Atendimento atualizaModel(AtualizaAtendimentoDTO atualizaAtendimentoDTO, @MappingTarget Atendimento atendimento);
+
 }
