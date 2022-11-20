@@ -1,16 +1,18 @@
 package com.five.springdesafio.dto.paciente;
 
+import java.sql.Date;
+
 public class ConsultaPacienteDTO {
 
     private String nome;
     private String cpf;
-    private String nascimento;
+    private Date nascimento;
     private String sexo;
 
     public ConsultaPacienteDTO() {
     }
 
-    public ConsultaPacienteDTO(String nome, String cpf, String nascimento, String sexo) {
+    public ConsultaPacienteDTO(String nome, String cpf, Date nascimento, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
@@ -33,11 +35,11 @@ public class ConsultaPacienteDTO {
         this.cpf = cpf;
     }
 
-    public String getNascimento() {
+    public Date getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
 

@@ -1,5 +1,7 @@
 package com.five.springdesafio.model.clinica;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -17,7 +19,7 @@ public class Medico extends Usuario {
     }
     
     public Medico(@Size(min = 5, max = 5) String crm, @Size(min = 1, max = 45) String nome,
-    @Size(min = 11, max = 11) String cpf, @JsonFormat(pattern = "dd-MM-yyyy") String nascimento,
+    @Size(min = 11, max = 11) String cpf, @JsonFormat(pattern = "dd-MM-yyyy") Date nascimento,
     @Size(min = 1, max = 1) String sexo) {
         this.crm = crm;
         this.nascimento = nascimento;

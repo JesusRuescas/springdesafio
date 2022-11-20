@@ -1,5 +1,8 @@
 package com.five.springdesafio.model.clinica;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -14,6 +17,8 @@ import javax.persistence.OneToOne;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.five.springdesafio.dto.medico.MedicoDTO;
+import com.five.springdesafio.dto.paciente.PacienteDTO;
 
 @Entity
 public class Atendimento {
@@ -27,7 +32,7 @@ public class Atendimento {
 
     @DateTimeFormat(pattern = "dd-MM-yyyy-HH:mm")
     @JsonFormat(pattern = "dd-MM-yyyy-HH:mm")
-    protected String data;
+    protected LocalDate data;
 
     protected String observacao;
     protected boolean ativo;
@@ -40,7 +45,7 @@ public class Atendimento {
     public Atendimento() {
     }
 
-    public Atendimento(UUID id, String data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
+    public Atendimento(UUID id, LocalDate data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
         this.id = id;
         this.data = data;
         this.observacao = observacao;
@@ -61,12 +66,12 @@ public class Atendimento {
         this.id = id;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setData(LocalDate localDate) {
+        this.data = localDate;
     }
 
     public String getObservacao() {
@@ -85,7 +90,7 @@ public class Atendimento {
         this.ativo = ativo;
     }
 
-    @OneToMany(fetch = FetchType.LAZY)
+    // @OneToMany(fetch = FetchType.LAZY)
     public Medico getMedico() {
         return medico;
     }

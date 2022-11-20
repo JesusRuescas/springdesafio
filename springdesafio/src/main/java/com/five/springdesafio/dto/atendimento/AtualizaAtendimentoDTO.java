@@ -1,10 +1,12 @@
 package com.five.springdesafio.dto.atendimento;
 
+import java.sql.Date;
+
 import com.five.springdesafio.model.clinica.Medico;
 import com.five.springdesafio.model.clinica.Paciente;
 
 public class AtualizaAtendimentoDTO {
-    private String data;
+    private Date data;
     private String observacao;
     private boolean ativo;
     public Medico medico;
@@ -13,7 +15,7 @@ public class AtualizaAtendimentoDTO {
     public AtualizaAtendimentoDTO() {
     }
 
-    public AtualizaAtendimentoDTO(String data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
+    public AtualizaAtendimentoDTO(Date data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
         this.data = data;
         this.observacao = observacao;
         this.ativo = ativo;
@@ -21,11 +23,11 @@ public class AtualizaAtendimentoDTO {
         this.paciente = paciente;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

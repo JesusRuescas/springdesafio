@@ -1,19 +1,21 @@
 package com.five.springdesafio.dto.atendimento;
 
+import java.sql.Date;
+
+import com.five.springdesafio.dto.paciente.PacienteDTO;
 import com.five.springdesafio.model.clinica.Medico;
-import com.five.springdesafio.model.clinica.Paciente;
 
 public class AtendimentoDTO {
-    private String data;
+    private Date data;
     private String observacao;
     private boolean ativo;
     public Medico medico;
-    public Paciente paciente;
+    public PacienteDTO paciente;
 
     public AtendimentoDTO() {
     }
 
-    public AtendimentoDTO(String data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
+    public AtendimentoDTO(Date data, String observacao, boolean ativo, Medico medico, PacienteDTO paciente) {
         this.data = data;
         this.observacao = observacao;
         this.ativo = ativo;
@@ -21,11 +23,11 @@ public class AtendimentoDTO {
         this.paciente = paciente;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -53,11 +55,11 @@ public class AtendimentoDTO {
         this.medico = medico;
     }
 
-    public Paciente getPaciente() {
+    public PacienteDTO getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(PacienteDTO paciente) {
         this.paciente = paciente;
     }
 
@@ -65,6 +67,5 @@ public class AtendimentoDTO {
     public String toString() {
         return medico.getCrm();
     }
-    
 
 }

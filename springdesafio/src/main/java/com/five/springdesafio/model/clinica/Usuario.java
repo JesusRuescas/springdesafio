@@ -1,6 +1,7 @@
 package com.five.springdesafio.model.clinica;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Usuario implements Serializable {
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @JsonFormat(pattern = "dd-MM-yyyy")
-    protected String nascimento;
+    protected Date nascimento;
 
     @Size(min = 1, max = 1)
     protected String sexo;
@@ -41,7 +42,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(@Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf, String nascimento,
+    public Usuario(@Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf, Date nascimento,
             @Size(min = 1, max = 1) String sexo) {
         this.nome = nome;
         this.cpf = cpf;
@@ -49,7 +50,7 @@ public class Usuario implements Serializable {
         this.sexo = sexo;
     }
 
-    public static long getSerialversionuid() {
+    public long getSerialversionuid() {
         return serialVersionUID;
     }
 
@@ -69,11 +70,11 @@ public class Usuario implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getNascimento() {
+    public Date getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
 
