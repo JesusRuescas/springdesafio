@@ -1,8 +1,6 @@
 package com.five.springdesafio.model.clinica;
 
-import java.sql.Date;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -11,14 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.five.springdesafio.dto.medico.MedicoDTO;
-import com.five.springdesafio.dto.paciente.PacienteDTO;
 
 @Entity
 public class Atendimento {
@@ -37,9 +33,9 @@ public class Atendimento {
     protected String observacao;
     protected boolean ativo;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Medico medico;
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Paciente paciente;
 
     public Atendimento() {
