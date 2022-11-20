@@ -27,7 +27,7 @@ public class Atendimento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "antedimento_id", updatable = false, unique = true, nullable = false)
+    @Column(name = "atendimento_id", updatable = false, unique = true, nullable = false)
     public UUID id;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy-HH:mm")
