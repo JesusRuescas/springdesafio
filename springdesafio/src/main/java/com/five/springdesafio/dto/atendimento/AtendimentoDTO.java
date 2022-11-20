@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import com.five.springdesafio.dto.medico.MedicoDTO;
 import com.five.springdesafio.dto.paciente.PacienteDTO;
-import com.five.springdesafio.model.clinica.Medico;
 
 public class AtendimentoDTO {
     private Date data;
