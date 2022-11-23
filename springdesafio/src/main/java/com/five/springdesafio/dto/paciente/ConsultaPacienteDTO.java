@@ -3,7 +3,6 @@ package com.five.springdesafio.dto.paciente;
 import java.sql.Date;
 
 public class ConsultaPacienteDTO {
-
     private String nome;
     private String cpf;
     private Date nascimento;
@@ -50,5 +49,4 @@ public class ConsultaPacienteDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
 }

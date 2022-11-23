@@ -9,7 +9,8 @@ public class AtualizaMedicoDTO {
     private Date nascimento;
     private String sexo;
 
-    public AtualizaMedicoDTO(){}
+    public AtualizaMedicoDTO() {
+    }
 
     public AtualizaMedicoDTO(String crm, String nome, String cpf, Date nascimento, String sexo) {
         this.crm = crm;
@@ -58,6 +59,4 @@ public class AtualizaMedicoDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
-    
 }

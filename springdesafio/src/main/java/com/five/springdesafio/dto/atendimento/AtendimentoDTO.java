@@ -1,26 +1,34 @@
 package com.five.springdesafio.dto.atendimento;
 
 import java.sql.Date;
-
-import com.five.springdesafio.dto.medico.MedicoDTO;
-import com.five.springdesafio.dto.paciente.PacienteDTO;
+import java.util.UUID;
 
 public class AtendimentoDTO {
+    private UUID id;
     private Date data;
     private String observacao;
     private boolean ativo;
-    public MedicoDTO medico;
-    public PacienteDTO paciente;
+    private String crm;
+    private String cpf;
 
     public AtendimentoDTO() {
     }
 
-    public AtendimentoDTO(Date data, String observacao, boolean ativo, MedicoDTO medico, PacienteDTO paciente) {
+    public AtendimentoDTO(UUID id, Date data, String observacao, boolean ativo, String crm, String cpf) {
+        this.id = id;
         this.data = data;
         this.observacao = observacao;
         this.ativo = ativo;
-        this.medico = medico;
-        this.paciente = paciente;
+        this.crm = crm;
+        this.cpf = cpf;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Date getData() {
@@ -47,25 +55,20 @@ public class AtendimentoDTO {
         this.ativo = ativo;
     }
 
-    public MedicoDTO getMedico() {
-        return medico;
+    public String getCrm() {
+        return crm;
     }
 
-    public void setMedico(MedicoDTO medico) {
-        this.medico = medico;
+    public void setCrm(String crm) {
+        this.crm = crm;
     }
 
-    public PacienteDTO getPaciente() {
-        return paciente;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setPaciente(PacienteDTO paciente) {
-        this.paciente = paciente;
-    }
-
-    @Override
-    public String toString() {
-        return medico.getCrm();
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
 }

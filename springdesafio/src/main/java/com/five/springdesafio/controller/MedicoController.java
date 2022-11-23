@@ -37,15 +37,9 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<MedicoDTO>> buscaMedicos(@RequestParam String crm) {
+    public ResponseEntity<List<MedicoDTO>> buscaMedicos(@RequestParam(required = false) String crm) {
         return ResponseEntity.status(HttpStatus.OK).body(medicoService.listaMedicos(crm));
     }
-    
-    // // @GetMapping(value = "/{crm}")
-    // public ResponseEntity<MedicoDTO> buscaMedicoPorCrm(@RequestParam() String crm) {
-    //     return ResponseEntity.status(HttpStatus.OK).body(medicoService.listaPorCrm(crm));
-    // }
-
 
     @PutMapping(value = "/{crm}")
     public ResponseEntity<RegistroMedicoDTO> atualizaMedico(@PathVariable String crm,
@@ -65,5 +59,4 @@ public class MedicoController {
     public ResponseEntity<MedicoDTO> deletaMedico(@PathVariable String crm) {
         return ResponseEntity.ok().body(medicoService.deletaMedico(crm));
     }
-
 }

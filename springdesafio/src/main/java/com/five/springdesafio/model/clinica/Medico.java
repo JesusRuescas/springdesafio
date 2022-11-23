@@ -1,6 +1,7 @@
 package com.five.springdesafio.model.clinica;
 
 import java.sql.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,20 +11,21 @@ import javax.validation.constraints.Size;
 @Table(name = "Medico")
 public class Medico extends Usuario {
 
-    // @Length(min = 5, max = 5)
-    public String crm;
+    @Size(min = 5, max = 5)
+    private String crm;
 
     public Medico() {
     }
 
-    public Medico(@Size(min = 5, max = 5) String crm, @Size(min = 1, max = 45) String nome,
-            @Size(min = 11, max = 11) String cpf, Date nascimento,
-            @Size(min = 1, max = 1) String sexo) {
+    public Medico(String crm, UUID id) {
         this.crm = crm;
-        this.nascimento = nascimento;
-        this.cpf = cpf;
-        this.nome = nome;
-        this.sexo = sexo;
+        this.id = id;
+    }
+
+    public Medico(@Size(min = 1, max = 30) String nome, @Size(min = 11, max = 11) String cpf, Date nascimento,
+            @Size(min = 1, max = 1) String sexo, String crm) {
+        super(nome, cpf, nascimento, sexo);
+        this.crm = crm;
     }
 
     public String getCrm() {
@@ -34,4 +36,7 @@ public class Medico extends Usuario {
         this.crm = crm;
     }
 
+    public UUID getId() {
+        return id;
+    }
 }

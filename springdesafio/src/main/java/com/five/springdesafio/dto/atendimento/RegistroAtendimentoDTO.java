@@ -1,6 +1,7 @@
 package com.five.springdesafio.dto.atendimento;
 
 import java.sql.Date;
+import java.util.UUID;
 
 import com.five.springdesafio.model.clinica.Medico;
 import com.five.springdesafio.model.clinica.Paciente;
@@ -9,17 +10,23 @@ public class RegistroAtendimentoDTO {
     private Date data;
     private String observacao;
     private boolean ativo;
-    public Medico medico;
-    public Paciente paciente;
-    
-    public RegistroAtendimentoDTO(){}
+    private Medico medico;
+    private Paciente paciente;
+    private UUID pacienteId;
+    private UUID medicoId;
 
-    public RegistroAtendimentoDTO(Date data, String observacao, boolean ativo, Medico medico, Paciente paciente) {
+    public RegistroAtendimentoDTO() {
+    }
+
+    public RegistroAtendimentoDTO(Date data, String observacao, boolean ativo, Medico medico, Paciente paciente,
+            UUID pacienteId, UUID medicoId) {
         this.data = data;
         this.observacao = observacao;
         this.ativo = ativo;
         this.medico = medico;
         this.paciente = paciente;
+        this.pacienteId = pacienteId;
+        this.medicoId = medicoId;
     }
 
     public Date getData() {
@@ -62,9 +69,20 @@ public class RegistroAtendimentoDTO {
         this.paciente = paciente;
     }
 
-    @Override
-    public String toString() {
-        return medico.getCrm();
+    public UUID getPacienteId() {
+        return pacienteId;
     }
-    
+
+    public void setPacienteId(UUID pacienteId) {
+        this.pacienteId = pacienteId;
+    }
+
+    public UUID getMedicoId() {
+        return medicoId;
+    }
+
+    public void setMedicoId(UUID medicoId) {
+        this.medicoId = medicoId;
+    }
+
 }

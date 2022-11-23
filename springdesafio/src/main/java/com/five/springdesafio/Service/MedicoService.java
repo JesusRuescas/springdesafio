@@ -29,11 +29,6 @@ public class MedicoService {
         return medicoMapper.dto(medicoModel);
     }
 
-    // public MedicoDTO listaPorCrm(String crm) {
-    //     Medico medico = medicoRepository.findByCrm(crm).get();
-    //     return medicoMapper.dto(medico);
-    // }
-
     public List<MedicoDTO> listaMedicos(String crm) {
         List<Medico> medicos = medicoRepository.findAll();
         return medicoMapper.listDto(medicos);
@@ -64,5 +59,4 @@ public class MedicoService {
         return medicoMapper.registroDTO(medicoModel);
 
     }
-
 }

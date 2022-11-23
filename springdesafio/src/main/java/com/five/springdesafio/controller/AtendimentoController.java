@@ -25,12 +25,14 @@ public class AtendimentoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<AtendimentoDTO> cadastraAtendimento(@RequestBody RegistroAtendimentoDTO registroAtendimentoDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(atendimentoService.criaAtendimento(registroAtendimentoDTO));
+    public ResponseEntity<AtendimentoDTO> cadastraAtendimento(
+            @RequestBody RegistroAtendimentoDTO registroAtendimentoDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(atendimentoService.criaAtendimeto(registroAtendimentoDTO));
     }
 
     @GetMapping
     public ResponseEntity<List<AtendimentoDTO>> buscaTodosAtendimentos() {
-        return ResponseEntity.status(HttpStatus.OK).body(atendimentoService.listaAtendimentos());
+        return ResponseEntity.status(HttpStatus.OK).body(atendimentoService.listaAtendimetos());
     }
 }

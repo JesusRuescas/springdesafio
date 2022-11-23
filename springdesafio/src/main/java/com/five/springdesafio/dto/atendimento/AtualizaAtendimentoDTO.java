@@ -67,6 +67,4 @@ public class AtualizaAtendimentoDTO {
     public String toString() {
         return medico.getCrm();
     }
-
 }
-

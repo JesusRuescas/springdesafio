@@ -3,7 +3,6 @@ package com.five.springdesafio.dto.medico;
 import java.sql.Date;
 
 public class RegistroMedicoDTO {
-
     private String crm;
     private String nome;
     private String cpf;
@@ -60,5 +59,4 @@ public class RegistroMedicoDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
 }

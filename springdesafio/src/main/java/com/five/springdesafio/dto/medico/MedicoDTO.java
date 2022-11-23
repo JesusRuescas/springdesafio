@@ -1,23 +1,32 @@
 package com.five.springdesafio.dto.medico;
 
 import java.sql.Date;
+import java.util.UUID;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class MedicoDTO {
-    private String crm;
+    private UUID id;
+    public String crm;
     private String nome;
     private String cpf;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date nascimento;
     private String sexo;
 
     public MedicoDTO() {
     }
 
-    public MedicoDTO(String crm, String nome, String cpf, Date nascimento, String sexo) {
+    public MedicoDTO(String crm, String nome, String cpf, Date nascimento, String sexo, UUID id) {
         this.crm = crm;
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
         this.sexo = sexo;
+        this.id = id;
     }
 
     public String getCrm() {
@@ -60,4 +69,13 @@ public class MedicoDTO {
         this.sexo = sexo;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    
 }

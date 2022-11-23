@@ -63,5 +63,4 @@ public class PacienteService {
         return pacienteMapper.registroDTO(pacienteModel);
 
     }
-
 }

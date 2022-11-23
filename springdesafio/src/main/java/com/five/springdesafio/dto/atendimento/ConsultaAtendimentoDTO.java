@@ -8,7 +8,8 @@ public class ConsultaAtendimentoDTO {
     public Paciente paciente;
     private boolean ativo;
 
-    public ConsultaAtendimentoDTO(){}
+    public ConsultaAtendimentoDTO() {
+    }
 
     public ConsultaAtendimentoDTO(Medico medico, Paciente paciente, boolean ativo) {
         this.medico = medico;
@@ -40,11 +41,8 @@ public class ConsultaAtendimentoDTO {
         this.ativo = ativo;
     }
 
-
     @Override
     public String toString() {
         return medico.getCrm();
     }
-    
-    
 }

@@ -49,5 +49,4 @@ public class RegistroPacienteDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
 }

@@ -10,11 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Atendimento {
@@ -25,11 +20,8 @@ public class Atendimento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "atendimento_id", updatable = false, unique = true, nullable = false)
     public UUID id;
-
-    @DateTimeFormat(pattern = "dd-MM-yyyy-HH:mm")
-    @JsonFormat(pattern = "dd-MM-yyyy-HH:mm")
+    
     protected LocalDate data;
-
     protected String observacao;
     protected boolean ativo;
 
@@ -102,5 +94,4 @@ public class Atendimento {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
 }

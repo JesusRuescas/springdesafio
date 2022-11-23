@@ -1,9 +1,10 @@
 package com.five.springdesafio.dto.paciente;
 
 import java.sql.Date;
+import java.util.UUID;
 
 public class PacienteDTO {
-
+    private UUID id;
     private String nome;
     private String cpf;
     private Date nascimento;
@@ -12,11 +13,20 @@ public class PacienteDTO {
     public PacienteDTO() {
     }
 
-    public PacienteDTO(String nome, String cpf, Date nascimento, String sexo) {
+    public PacienteDTO(UUID id, String nome, String cpf, Date nascimento, String sexo) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
         this.sexo = sexo;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -50,5 +60,7 @@ public class PacienteDTO {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+   
 
 }

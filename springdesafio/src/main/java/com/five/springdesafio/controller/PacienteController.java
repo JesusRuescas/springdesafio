@@ -38,21 +38,9 @@ public class PacienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PacienteDTO>> buscaTodosPacientes(@RequestParam String cpf) {
+    public ResponseEntity<List<PacienteDTO>> buscaTodosPacientes(@RequestParam(required = false) String cpf) {
         return ResponseEntity.status(HttpStatus.OK).body(pacienteService.listaPacientes(cpf));
     }
-
-    // @GetMapping
-    // public ResponseEntity<List<MedicoDTO>> buscaMedicos(@RequestParam String crm) {
-    //     return ResponseEntity.status(HttpStatus.OK).body(medicoService.listaMedicos(crm));
-    // }
-    
-    //  @GetMapping
-    // public ResponseEntity<List<MedicoDTO>> buscaMedicos(@RequestParam String crm) {
-    //     return ResponseEntity.status(HttpStatus.OK).body(medicoService.listaMedicos(crm));
-    // }
-
-
 
     @PutMapping(value = "/{cpf}")
     public ResponseEntity<RegistroPacienteDTO> atualizaPaciente(@PathVariable String cpf,

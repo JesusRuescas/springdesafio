@@ -32,8 +32,7 @@ public class Usuario implements Serializable {
     @CPF
     protected String cpf;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @JsonFormat(pattern = "dd-MM-yyyy")
+
     protected Date nascimento;
 
     @Size(min = 1, max = 1)
@@ -85,5 +84,4 @@ public class Usuario implements Serializable {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
 }
